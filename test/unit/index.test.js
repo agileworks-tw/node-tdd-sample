@@ -13,7 +13,6 @@ describe('TDD hello world', () => {
     try {
       const result = await helloWorld.greet();
       result.should.be.eq('hello')
-      console.log('=== result ===', result);
       done();
     } catch (e) {
       done(e);
