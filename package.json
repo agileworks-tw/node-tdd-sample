@@ -1,0 +1,37 @@
+{
+  "name": "system-agent-core",
+  "description": "",
+  "version": "0.0.5",
+  "main": "lib/index.js",
+  "author": "",
+  "repository": "/system-agent-core",
+  "license": "MIT",
+  "scripts": {
+    "compile": "babel src --out-dir lib",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "prepublish": "npm run compile",
+    "test": "./node_modules/.bin/mocha"
+  },
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-core": "^6.8.0",
+    "babel-eslint": "^6.0.4",
+    "babel-plugin-syntax-async-functions": "^6.8.0",
+    "babel-plugin-transform-regenerator": "^6.1.4",
+    "babel-plugin-transform-runtime": "^6.8.0",
+    "babel-preset-es2015": "*",
+    "chai": "*",
+    "coveralls": "*",
+    "eslint": "^2.11.0",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.2.2",
+    "eslint-plugin-react": "^5.1.1",
+    "isparta": "*",
+    "mocha": "*",
+    "sinon": "*"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.6.1"
+  }
+}
