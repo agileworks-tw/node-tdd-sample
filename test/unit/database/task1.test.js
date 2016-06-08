@@ -30,7 +30,7 @@ describe('database task1 create', () => {
 });
 
 
-describe('database task1 find', () => {
+describe.only('database task1 find', () => {
 
   let models = null;
   beforeEach(async (done) => {
@@ -49,10 +49,38 @@ describe('database task1 find', () => {
     }
   });
 
-  it('find user data', async (done) => {
+
+
+  it('find user without async', (done) => {
     try {
+      console.log("=== start ===");
+      let results = models.User.findAll();
+      console.log("=== end ===");
+      done()
+    } catch (e) {
+      done(e)
+    }
+  });
+
+  it('find user without async use promise', (done) => {
+    try {
+      console.log("=== start ===");
+      let results = models.User.findAll().then(() => {
+        console.log("=== end ===");
+      });
+
+      done()
+    } catch (e) {
+      done(e)
+    }
+  });
+
+  it('find user data with async', async (done) => {
+    try {
+      console.log("=== start ===");
       let results = await models.User.findAll();
       (results.length == 1).should.be.true
+      console.log("=== end ===");
       done()
     } catch (e) {
       done(e)
