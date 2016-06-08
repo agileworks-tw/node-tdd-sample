@@ -29,7 +29,9 @@
     "eslint-plugin-react": "^5.1.1",
     "isparta": "*",
     "mocha": "*",
-    "sinon": "*"
+    "sinon": "*",
+    "supertest": "^1.2.0",
+    "supertest-as-promised": "^3.1.0"
   },
   "dependencies": {
     "babel-runtime": "^6.6.1"
