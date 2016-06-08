@@ -1,9 +1,9 @@
 import task1_initModel from '../../../src/database/task1';
 
-describe.only('node database task1', () => {
+describe('database task1 create', () => {
 
   let models = null;
-  before(async (done) => {
+  beforeEach(async (done) => {
     try {
       models = await task1_initModel()
       done()
@@ -27,10 +27,32 @@ describe.only('node database task1', () => {
     }
   });
 
+});
+
+
+describe('database task1 find', () => {
+
+  let models = null;
+  beforeEach(async (done) => {
+    try {
+      models = await task1_initModel()
+      let addUser = {
+        username: 'test',
+        password: 'test',
+        email: 'test@mail.com'
+      }
+      let result = await models.User.create(addUser);
+
+      done()
+    } catch (e) {
+      done(e)
+    }
+  });
+
   it('find user data', async (done) => {
     try {
       let results = await models.User.findAll();
-      (results.length >= 1).should.be.true
+      (results.length == 1).should.be.true
       done()
     } catch (e) {
       done(e)
