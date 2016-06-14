@@ -30,7 +30,7 @@ describe('database task1 create', () => {
 });
 
 
-describe.only('database task1 find', () => {
+describe('database task1 find', () => {
 
   let models = null;
   beforeEach(async (done) => {
@@ -49,8 +49,6 @@ describe.only('database task1 find', () => {
     }
   });
 
-
-
   it('find user without async', (done) => {
     try {
       console.log("=== start ===");
@@ -68,7 +66,6 @@ describe.only('database task1 find', () => {
       let results = models.User.findAll().then(() => {
         console.log("=== end ===");
       });
-
       done()
     } catch (e) {
       done(e)
