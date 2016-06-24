@@ -1,7 +1,6 @@
 import task1_initModel from '../../../src/database/task1';
 
-describe('database task1 create', () => {
-
+describe.only('database task1 create', () => {
   let models = null;
   beforeEach(async (done) => {
     try {
@@ -14,11 +13,7 @@ describe('database task1 create', () => {
 
   it('create user data', async (done) => {
     try {
-      let addUser = {
-        username: 'test',
-        password: 'test',
-        email: 'test@mail.com'
-      }
+      let addUser = {username: 'test', password: 'test', email: 'test@mail.com'}
       let result = await models.User.create(addUser);
       result.toJSON().should.has.keys('id', 'username', 'username', 'password', 'createdAt', 'updatedAt')
       done()
@@ -27,6 +22,16 @@ describe('database task1 create', () => {
     }
   });
 
+  it('user list should be only one', async (done) => {
+    try {
+      let list = await models.User.findAll();
+      console.log('=== list.length ===', list.length);
+      (list.length == 0).should.be.true;
+      done();
+    } catch (e) {
+      done(e);
+    }
+  });
 });
 
 
