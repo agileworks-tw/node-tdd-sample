@@ -1,6 +1,6 @@
 import task1_initModel from '../../../src/database/task1';
 
-describe.only('database task1 create', () => {
+describe('database task1 create', () => {
   let models = null;
   beforeEach(async (done) => {
     try {
