@@ -17,9 +17,8 @@ export default class FacebookHelper {
 
   async getFriends() {
     try {
-      console.log('this.userId', this.userId);
       let result = await new Promise((resolve, reject) => {
-        this.FB.api(this.userId + '/friends', function(res, error) {
+        this.FB.api(`${this.userId}/friends`, function(res, error) {
           if(error) reject(error);
           resolve(res.data);
         });
@@ -29,9 +28,21 @@ export default class FacebookHelper {
     } catch (e) {
       throw e;
     }
+  }
 
+  async publishPost({message}) {
+    try {
+      let result = await new Promise((resolve, reject) => {
+        this.FB.api(`${this.userId}/feed`, 'post', { message }, function(res, error) {
+          if(error) reject(error);
+          resolve(res);
+        });
+      });
+      return result;
 
-
+    } catch (e) {
+      throw e;
+    }
   }
 
 }
