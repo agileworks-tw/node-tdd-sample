@@ -53,7 +53,7 @@ describe('practice', () => {
     }
   });
 
-  describe.only('practice find', () => {
+  describe('practice find', () => {
     let models = null;
     let targetPost = null
     beforeEach(async (done) => {
