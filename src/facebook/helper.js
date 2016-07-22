@@ -24,7 +24,6 @@ export default class FacebookHelper {
         });
       });
       return result;
-
     } catch (e) {
       throw e;
     }
