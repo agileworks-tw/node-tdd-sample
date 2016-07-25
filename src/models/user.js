@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
+    age: DataTypes.INTEGER,
   }, {
     classMethods: {
       associate: (models) => {
